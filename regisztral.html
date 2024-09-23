@@ -14,13 +14,75 @@
     <h1>Regisztrál</h1>
     <div class="container">
         <form action="/action_page.php">
-            <label for="fname">Keresztnév:</label><br>
-            <input type="text" id="fname" name="fname"><br>
-            <label for="lname">Vezetéknév:</label><br>
-            <input type="text" id="lname" name="lname"><br>
-            <label for="password">Jelszó:</label><br>
-            <input type="text" id="password" name="password"> <input type="button" value="asd" name="generate" onclick="AutoGenerate()"> <br>
-            <input type="submit" value="Submit">
+            <div class="row">
+                <div class="col">
+                    <label for="name">Név:</label>
+                </div>
+                <div class="col">
+                    <input type="text" id="name" name="name">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <img src="images/ageIcon.png" alt="ageIcon"> <label for="age">Életkor: 50</label>
+                </div>
+                <div class="col">
+                    <input type="range" min="18" max="100" value="50" id="age" name="lname" oninput="AgeSliderChange()">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label for="gender">Nem:</label>
+                </div>
+                <div class="col">
+                    <img class="gender" src="images/maleIcon.png" alt="ferfi" onclick="NemKivalaszt('ferfi')"> &nbsp; &nbsp; <img class="gender" src="images/femaileIcon.png" alt="no" onclick="NemKivalaszt('nő')">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label for="job">Foglalkozás:</label>
+                </div>
+                <div class="col">
+                    <input type="text" id="job" name="job">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label for="fields">Ágazat:</label>
+                </div>
+                <div class="col">
+                    <select name="fields" id="fields">
+                        <option value="gepipar">Gépipar</option>
+                        <option value="informatika">Informatika</option>
+                        <option value="jogi">Jogi</option><!--többet keresni a neten 10 kell!-->
+                        <option value="szepeszet">Szépészet</option>
+                        <option value="gazdasagi">Gazdasági</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <img src="images/mail_Icon.png" alt="emailIcon"> <label for="email">Email:</label>
+                </div>
+                <div class="col">
+                    <input type="text" id="email" name="email">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <img src="images/password_Icon.png" alt="passwordIcon"> <label for="password">Jelszó:</label>
+                </div>
+                <div class="col">
+                    <input type="text" id="password" name="password"> <input type="button" value="Auto generate" name="generate" onclick="AutoGenerate()"><br><br>
+                </div>
+            </div>
+            <input id="submit" type="submit" value="Regisztrálás">
           </form> 
     </div>
 </body>

@@ -1,0 +1,31 @@
+h1{
+    text-align: center;
+}
+
+.container{
+    margin-top: 50px;
+    width: 40%;
+    background-color: aqua;
+    border-radius: 25px;
+    padding: 2%;
+}
+
+.row{
+    margin-bottom: 30px;
+}
+
+img{
+    width: 32px;
+    height: 32px;
+}
+
+.gender:hover{
+    cursor: pointer;
+    transform: scale(1.5);
+}
+
+#submit{
+    margin: 0;
+    position: absolute;
+    left: 47%;
+}
