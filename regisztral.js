@@ -1,11 +1,29 @@
 function AutoGenerate(){//password autógenerálás
-    let jelszo = "";
-    for (let i = 0; i < 10; i++) {
-        Math.floor(Math.random() * 10);
-        //vm algoritmust
+    let password = "";
+    let letter = "qwertzuiopasdfghjklyxcvbnm";
+    let symbol = "+!%/=()?:_,.-;*<>#&@{}[]|+";
+
+    for (let i = 0; i < 20; i++) {
+        
+        if (Math.floor(Math.random() * 2)) {
+            password += Math.floor(Math.random() * 10);
+            continue;
+        }
+
+        if (Math.floor(Math.random() * 3)) {
+            if (Math.floor(Math.random() * 2)) {
+                password += letter[Math.floor(Math.random() * letter.length)].toUpperCase();
+                continue;
+            }
+            password += letter[Math.floor(Math.random() * letter.length)]
+            continue;
+        }
+
+        password += symbol[Math.floor(Math.random() * symbol.length)]
+
     }
 
-    
+    document.getElementById("password").value = password;
 }
 
 function ShowPassword() {
@@ -21,7 +39,7 @@ function AgeSliderChange(){//age kiválasztás
     document.getElementById("ageLabel").innerText = "Életkor: " + document.getElementById("age").value;
 }
 
-function NemKivalaszt(nem){ //nem kiválasztása
+function NemKivalaszt(gender){ //nem kiválasztása
     if (arguments.length == 0) {
         if (document.getElementById('male').classList.contains("genderSelect")) {
             return "male";
@@ -29,7 +47,7 @@ function NemKivalaszt(nem){ //nem kiválasztása
         return "female";
     }
 
-    if (nem == "male") {
+    if (gender == "male") {
         document.getElementById("male").classList.add("genderSelect");
         document.getElementById("female").classList.remove("genderSelect");
         return;
@@ -37,11 +55,11 @@ function NemKivalaszt(nem){ //nem kiválasztása
 
     document.getElementById("male").classList.remove("genderSelect");
     document.getElementById("female").classList.add("genderSelect");
-    return nem;
+    return gender;
 }
 
 function Submit() {
-    let nev = document.getElementById("name").value;
+    let name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
     let age = document.getElementById("age").value;
     let gender = NemKivalaszt();
@@ -49,7 +67,7 @@ function Submit() {
     let fields = document.getElementById("fields").value;
     let password = document.getElementById("password").value;
 
-    if (nev == "" || email == "" || job == "" || password == "") {
+    if (name == "" || email == "" || job == "" || password == "") {
         alert("Minden megadott mezőt ki kell tölteni!");
         return;
     }
