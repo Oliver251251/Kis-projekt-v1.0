@@ -1,11 +1,18 @@
+body{
+    background-image: url("images/bg.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 h1{
     text-align: center;
 }
 
 .container{
+    position: relative;
     margin-top: 50px;
-    width: 40%;
-    background-color: aqua;
+    width: 35%;
+    background-color: #fefefa;
     border-radius: 25px;
     padding: 2%;
 }
@@ -19,13 +26,35 @@ img{
     height: 32px;
 }
 
+.button{
+    border-radius: 25px;
+    background-color: #bfffbf;
+    margin: 5px;
+}
+
+.button:hover{
+    background-color: #80ff80;
+    transform: scale(1.05);
+}
+
 .gender:hover{
     cursor: pointer;
-    transform: scale(1.5);
+    transform: scale(1.08);
+}
+
+.genderSelect{
+    border: 1px, solid, #80ff80;
+    background-color: #bfffbf;
 }
 
 #submit{
     margin: 0;
     position: absolute;
-    left: 47%;
+    left: 45%;
+    bottom: 5%;
+}
+
+#showPassword{
+    width: 16px;
+    height: 16px;
 }
