@@ -42,9 +42,9 @@ function AgeSliderChange(){//age kiválasztás
 function NemKivalaszt(gender){ //nem kiválasztása
     if (arguments.length == 0) {
         if (document.getElementById('male').classList.contains("genderSelect")) {
-            return "male";
+            return "Férfi";
         }
-        return "female";
+        return "Nő";
     }
 
     if (gender == "male") {
@@ -61,10 +61,7 @@ function NemKivalaszt(gender){ //nem kiválasztása
 function Submit() {
     let name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
-    let age = document.getElementById("age").value;
-    let gender = NemKivalaszt();
     let job = document.getElementById("job").value;
-    let fields = document.getElementById("fields").value;
     let password = document.getElementById("password").value;
 
     if (name == "" || email == "" || job == "" || password == "") {
@@ -77,6 +74,11 @@ function Submit() {
         return;
     }
     
+    const data = getQueryParams();
+    if (data.name || data.age || data.job || data.email) {
+        alert(`Beküldött adat:\nNév: ${data.name}\nKor: ${data.age}\nNem: ${data.gender}\nMunka: ${data.job}\nPálya: ${data.field}\nEmail: ${data.email}`);
+    }
+    location.reload();
 }
 
 function validateEmail(email) {
@@ -85,20 +87,14 @@ function validateEmail(email) {
   }
 
 
-  function getQueryParams() {
-    const params = new URLSearchParams(window.location.search);
+function getQueryParams() {
+    //const params = new URLSearchParams(window.location.search);
     return {
-        name: params.get('name'),
-        age: params.get('age'),
-        job: params.get('job'),
-        email: params.get('email')
-    };
+         name: document.getElementById("name").value,
+         email: document.getElementById("email").value,
+         age: document.getElementById("age").value,
+         gender: NemKivalaszt(),
+         job: document.getElementById("job").value,
+         fields: document.getElementById("fields").value,
+        };
 }
-
-// Display the submitted data
-window.onload = function() {
-    const data = getQueryParams();
-    if (data.name || data.age || data.job || data.email) {
-        alert(`Submitted Data:\nName: ${data.name}\nAge: ${data.age}\nJob: ${data.job}\nEmail: ${data.email}`);
-    }
-};

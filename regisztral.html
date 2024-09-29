@@ -74,11 +74,16 @@
                 </div>
                 <div class="col-12 col-md-10 igazit">
                     <select name="fields" id="fields" class="form-select">
-                        <option value="gepipar">Gépipar</option>
-                        <option value="informatika">Informatika</option>
-                        <option value="jogi">Jogi</option>
-                        <option value="szepeszet">Szépészet</option>
-                        <option value="gazdasagi">Gazdasági</option>
+                        <option value="Gépipar">Gépipar</option>
+                        <option value="Informatika">Informatika</option>
+                        <option value="Jogi">Jogi</option>
+                        <option value="Szépészet">Szépészet</option>
+                        <option value="Gazdasági">Gazdasági</option>
+                        <option value="Oktatási">Oktatási</option>
+                        <option value="Egeszseg">Egeszseg</option>
+                        <option value="Építészet">Építészet</option>
+                        <option value="Karbantartás és javítás">Karbantartás és javítás</option>
+                        <option value="Kommunikáció">Kommunikáció</option>
                     </select>
                 </div>
             </div>
@@ -107,14 +112,14 @@
                             <input type="checkbox" onclick="ShowPassword()">
                             <img id="showPassword" src="images/eye.svg" alt="showPassword" class="img-fluid">
                         </span>
-                        <button type="button" class="btn" onclick="AutoGenerate()">Auto generate</button>
+                        <button type="button" class="btn" onclick="AutoGenerate()">Generálás</button>
                     </div>
                 </div>
             </div>
 
             <!-- Submit Button -->
             <div class="text-center">
-                <input class="btn" type="submit" value="Regisztrálás">
+                <input class="btn" type="button"  value="Regisztrálás" onclick="Submit()">
             </div>
 
         </form>

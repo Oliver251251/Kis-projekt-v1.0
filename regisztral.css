@@ -36,7 +36,7 @@ h1{
 .container {
     position: relative;
     width: 100%; /* Full width for smaller screens */
-    max-width: 600px; /* A reasonable max width for larger screens */
+    max-width: 650px; /* A reasonable max width for larger screens */
     background-color: #fefefa;
     border-radius: 25px;
     padding: 2%;
