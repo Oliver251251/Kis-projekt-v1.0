@@ -2,88 +2,122 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/x-icon" href="/images/icon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="/images/icon.png">
     <title>Regisztráció</title>
-    <script src="regisztral.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="regisztral.css">
+
+    <script src="regisztral.js"></script>
 </head>
 <body>
-    <h1>Regisztráció</h1>
-    <div class="container">
-        <form action="/action_page.php">
-            <div class="row">
-                <div class="col">
-                    <img src="images/nameIcon.png" alt="nameIcon"> <label for="name">Név:</label>
+    <h1 class="text-center mt-3">Regisztráció</h1>
+
+    <div class="container mt-5">
+        <form action="" method="GET">
+            
+            <!-- Name Row -->
+            <div class="row mb-3">
+                <div class="col-12 col-md-2 text-center">
+                    <img src="images/nameIcon.png" alt="nameIcon" class="img-fluid">
+                    <label for="name" class="form-label">Név:</label>
                 </div>
-                <div class="col">
-                    <input type="text" id="name" name="name">
+                <div class="col-12 col-md-10 igazit">
+                    <input type="text" id="name" name="name" class="form-control">
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col">
-                    <img src="images/ageIcon.png" alt="ageIcon"> <label id="ageLabel" for="age">Életkor: 50</label>
+            <!-- Age Row -->
+            <div class="row mb-3">
+                <div class="col-12 col-md-2 text-center">
+                    <img src="images/ageIcon.png" alt="ageIcon" class="img-fluid">
+                    <label id="ageLabel" for="age" class="form-label" style="white-space: nowrap;">Életkor: <span id="ageValue">50</span></label>
                 </div>
-                <div class="col">
-                    <input type="range" min="18" max="100" value="50" id="age" name="lname" oninput="AgeSliderChange()">
+                <div class="col-12 col-md-10 igazit">
+                    <input type="range" min="18" max="100" value="50" id="age" name="age" class="form-range" oninput="AgeSliderChange()">
+                </div>
+            </div>
+            
+
+            <!-- Gender Row -->
+            <div class="row mb-3">
+                <div class="col-12 col-md-2 text-center">
+                    <img src="images/genderIcon.png" alt="genderIcon" class="img-fluid">
+                    <label for="gender" class="form-label">Nem:</label>
+                </div>
+                <div class="col-12 col-md-10 text-center igazit">
+                    <img class="gender genderSelect img-fluid" id="male" src="images/maleIcon.png" alt="ferfi" onclick="NemKivalaszt('male')">
+                    <img class="gender img-fluid ms-3" id="female" src="images/femaileIcon.png" alt="no" onclick="NemKivalaszt('female')">
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col">
-                    <img src="images/genderIcon.png" alt="genderIcon"> <label for="gender">Nem:</label>
+            <!-- Job Row -->
+            <div class="row mb-3">
+                <div id="foglal-text" class="col-12 col-md-2 text-center">
+                    <img src="images/workIcon.png" alt="workIcon" class="img-fluid">
+                    <label for="job" class="form-label">Foglalkozás:</label>
                 </div>
-                <div class="col">
-                    <img class="gender genderSelect" id="male" src="images/maleIcon.png" alt="ferfi" onclick="NemKivalaszt('male')"> &nbsp; &nbsp; <img class="gender" id="female" src="images/femaileIcon.png" alt="no" onclick="NemKivalaszt('female')">
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col">
-                    <img src="images/workIcon.png" alt="workIcon"> <label for="job">Foglalkozás:</label>
-                </div>
-                <div class="col">
-                    <input type="text" id="job" name="job">
+                <div class="col-12 col-md-10 igazit">
+                    <input type="text" id="job" name="job" class="form-control">
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col">
-                    <img src="images/workSectorIcon.png" alt="workSectorIcon"> <label for="fields">Ágazat:</label>
+            <!-- Sector Row -->
+            <div class="row mb-3">
+                <div class="col-12 col-md-2 text-center">
+                    <img src="images/workSectorIcon.png" alt="workSectorIcon" class="img-fluid">
+                    <label for="fields" class="form-label">Ágazat:</label>
                 </div>
-                <div class="col">
-                    <select name="fields" id="fields">
+                <div class="col-12 col-md-10 igazit">
+                    <select name="fields" id="fields" class="form-select">
                         <option value="gepipar">Gépipar</option>
                         <option value="informatika">Informatika</option>
-                        <option value="jogi">Jogi</option><!--többet keresni a neten 10 kell!-->
+                        <option value="jogi">Jogi</option>
                         <option value="szepeszet">Szépészet</option>
                         <option value="gazdasagi">Gazdasági</option>
                     </select>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col">
-                    <img src="images/mail_Icon.png" alt="emailIcon"> <label for="email">Email:</label>
+            <!-- Email Row -->
+            <div class="row mb-3">
+                <div class="col-12 col-md-2 text-center">
+                    <img src="images/mail_Icon.png" alt="emailIcon" class="img-fluid">
+                    <label for="email" class="form-label">Email:</label>
                 </div>
-                <div class="col">
-                    <input type="text" id="email" name="email">
+                <div class="col-12 col-md-10 igazit">
+                    <input type="text" id="email" name="email" class="form-control">
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col">
-                    <img src="images/password_Icon.png" alt="passwordIcon"> <label for="password">Jelszó:</label>
+            <!-- Password Row -->
+            <div class="row mb-3">
+                <div class="col-12 col-md-2 text-center">
+                    <img src="images/password_Icon.png" alt="passwordIcon" class="img-fluid">
+                    <label for="password" class="form-label">Jelszó:</label>
                 </div>
-                <div class="col">
-                    <input type="password" id="password" name="password"> <input type="checkbox" onclick="ShowPassword()"> <img id="showPassword" src="images/eye.svg" alt="showPassword" title="showPassword"> <input class="button" type="button" value="Auto generate" name="generate" onclick="AutoGenerate()"><br><br>
+                <div class="col-12 col-md-10 igazit">
+                    <div class="input-group">
+                        <input type="password" id="password" name="password" class="form-control">
+                        <span class="input-group-text">
+                            <input type="checkbox" onclick="ShowPassword()">
+                            <img id="showPassword" src="images/eye.svg" alt="showPassword" class="img-fluid">
+                        </span>
+                        <button type="button" class="btn" onclick="AutoGenerate()">Auto generate</button>
+                    </div>
                 </div>
             </div>
-            <input class="button" id="submit" type="button" value="Regisztrálás" onclick="Submit()">
-          </form> 
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <input class="btn" type="submit" value="Regisztrálás">
+            </div>
+
+        </form>
     </div>
 </body>
 </html>

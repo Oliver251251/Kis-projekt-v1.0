@@ -36,7 +36,7 @@ function ShowPassword() {
   }
 
 function AgeSliderChange(){//age kiválasztás
-    document.getElementById("ageLabel").innerText = "Életkor: " + document.getElementById("age").value;
+    document.getElementById("ageValue").innerText = document.getElementById("age").value;
 }
 
 function NemKivalaszt(gender){ //nem kiválasztása
@@ -83,3 +83,22 @@ function validateEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   }
+
+
+  function getQueryParams() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+        name: params.get('name'),
+        age: params.get('age'),
+        job: params.get('job'),
+        email: params.get('email')
+    };
+}
+
+// Display the submitted data
+window.onload = function() {
+    const data = getQueryParams();
+    if (data.name || data.age || data.job || data.email) {
+        alert(`Submitted Data:\nName: ${data.name}\nAge: ${data.age}\nJob: ${data.job}\nEmail: ${data.email}`);
+    }
+};
