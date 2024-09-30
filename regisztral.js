@@ -61,8 +61,10 @@ function NemKivalaszt(gender){ //nem kiválasztása
 function Submit() {
     let name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
+    let age = document.getElementById("age").value;
+    let gender = NemKivalaszt();
     let job = document.getElementById("job").value;
-    let password = document.getElementById("password").value;
+    let fields = document.getElementById("fields").value;
 
     if (name == "" || email == "" || job == "" || password == "") {
         alert("Minden megadott mezőt ki kell tölteni!");
@@ -73,12 +75,12 @@ function Submit() {
         alert("Nem megfelelő az email formátuma");
         return;
     }
-    
+    return
     const data = getQueryParams();
     if (data.name || data.age || data.job || data.email) {
         alert(`Beküldött adat:\nNév: ${data.name}\nKor: ${data.age}\nNem: ${data.gender}\nMunka: ${data.job}\nPálya: ${data.field}\nEmail: ${data.email}`);
     }
-    location.reload();
+    //location.reload();
 }
 
 function validateEmail(email) {
@@ -98,3 +100,12 @@ function getQueryParams() {
          fields: document.getElementById("fields").value,
         };
 }
+
+
+
+let loginForm = document.getElementById("loginForm");
+
+loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    Submit();
+  });

@@ -14,115 +14,116 @@
 
     <script src="regisztral.js"></script>
 </head>
-<body>
-    <h1 class="text-center mt-3">Regisztráció</h1>
-
-    <div class="container mt-5">
-        <form action="" method="GET">
-            
-            <!-- Name Row -->
-            <div class="row mb-3">
-                <div class="col-12 col-md-2 text-center">
-                    <img src="images/nameIcon.png" alt="nameIcon" class="img-fluid">
-                    <label for="name" class="form-label">Név:</label>
-                </div>
-                <div class="col-12 col-md-10 igazit">
-                    <input type="text" id="name" name="name" class="form-control">
-                </div>
-            </div>
-
-            <!-- Age Row -->
-            <div class="row mb-3">
-                <div class="col-12 col-md-2 text-center">
-                    <img src="images/ageIcon.png" alt="ageIcon" class="img-fluid">
-                    <label id="ageLabel" for="age" class="form-label" style="white-space: nowrap;">Életkor: <span id="ageValue">50</span></label>
-                </div>
-                <div class="col-12 col-md-10 igazit">
-                    <input type="range" min="18" max="100" value="50" id="age" name="age" class="form-range" oninput="AgeSliderChange()">
-                </div>
-            </div>
-            
-
-            <!-- Gender Row -->
-            <div class="row mb-3">
-                <div class="col-12 col-md-2 text-center">
-                    <img src="images/genderIcon.png" alt="genderIcon" class="img-fluid">
-                    <label for="gender" class="form-label">Nem:</label>
-                </div>
-                <div class="col-12 col-md-10 text-center igazit">
-                    <img class="gender genderSelect img-fluid" id="male" src="images/maleIcon.png" alt="ferfi" onclick="NemKivalaszt('male')">
-                    <img class="gender img-fluid ms-3" id="female" src="images/femaileIcon.png" alt="no" onclick="NemKivalaszt('female')">
-                </div>
-            </div>
-
-            <!-- Job Row -->
-            <div class="row mb-3">
-                <div id="foglal-text" class="col-12 col-md-2 text-center">
-                    <img src="images/workIcon.png" alt="workIcon" class="img-fluid">
-                    <label for="job" class="form-label">Foglalkozás:</label>
-                </div>
-                <div class="col-12 col-md-10 igazit">
-                    <input type="text" id="job" name="job" class="form-control">
-                </div>
-            </div>
-
-            <!-- Sector Row -->
-            <div class="row mb-3">
-                <div class="col-12 col-md-2 text-center">
-                    <img src="images/workSectorIcon.png" alt="workSectorIcon" class="img-fluid">
-                    <label for="fields" class="form-label">Ágazat:</label>
-                </div>
-                <div class="col-12 col-md-10 igazit">
-                    <select name="fields" id="fields" class="form-select">
-                        <option value="Gépipar">Gépipar</option>
-                        <option value="Informatika">Informatika</option>
-                        <option value="Jogi">Jogi</option>
-                        <option value="Szépészet">Szépészet</option>
-                        <option value="Gazdasági">Gazdasági</option>
-                        <option value="Oktatási">Oktatási</option>
-                        <option value="Egeszseg">Egeszseg</option>
-                        <option value="Építészet">Építészet</option>
-                        <option value="Karbantartás és javítás">Karbantartás és javítás</option>
-                        <option value="Kommunikáció">Kommunikáció</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- Email Row -->
-            <div class="row mb-3">
-                <div class="col-12 col-md-2 text-center">
-                    <img src="images/mail_Icon.png" alt="emailIcon" class="img-fluid">
-                    <label for="email" class="form-label">Email:</label>
-                </div>
-                <div class="col-12 col-md-10 igazit">
-                    <input type="text" id="email" name="email" class="form-control">
-                </div>
-            </div>
-
-            <!-- Password Row -->
-            <div class="row mb-3">
-                <div class="col-12 col-md-2 text-center">
-                    <img src="images/password_Icon.png" alt="passwordIcon" class="img-fluid">
-                    <label for="password" class="form-label">Jelszó:</label>
-                </div>
-                <div class="col-12 col-md-10 igazit">
-                    <div class="input-group">
-                        <input type="password" id="password" name="password" class="form-control">
-                        <span class="input-group-text">
-                            <input type="checkbox" onclick="ShowPassword()">
-                            <img id="showPassword" src="images/eye.svg" alt="showPassword" class="img-fluid">
-                        </span>
-                        <button type="button" class="btn" onclick="AutoGenerate()">Generálás</button>
+<body>    
+    <div id="background">
+        <h1 class="text-center mt-3">Regisztráció</h1>
+        <div class="container mt-5">
+            <form action="" method="GET" id = "loginForm">
+                
+                <!-- Name Row -->
+                <div class="row mb-3">
+                    <div class="col-12 col-md-2 text-center">
+                        <img src="images/nameIcon.png" alt="nameIcon" class="img-fluid">
+                        <label for="name" class="form-label">Név:</label>
+                    </div>
+                    <div class="col-12 col-md-10 igazit">
+                        <input type="text" id="name" name="name" class="form-control">
                     </div>
                 </div>
-            </div>
 
-            <!-- Submit Button -->
-            <div class="text-center">
-                <input class="btn" type="button"  value="Regisztrálás" onclick="Submit()">
-            </div>
+                <!-- Age Row -->
+                <div class="row mb-3">
+                    <div class="col-12 col-md-2 text-center">
+                        <img src="images/ageIcon.png" alt="ageIcon" class="img-fluid">
+                        <label id="ageLabel" for="age" class="form-label" style="white-space: nowrap;">Életkor: <span id="ageValue">50</span></label>
+                    </div>
+                    <div class="col-12 col-md-10 igazit">
+                        <input type="range" min="18" max="100" value="50" id="age" name="age" class="form-range" oninput="AgeSliderChange()">
+                    </div>
+                </div>
+                
 
-        </form>
+                <!-- Gender Row -->
+                <div class="row mb-3">
+                    <div class="col-12 col-md-2 text-center">
+                        <img src="images/genderIcon.png" alt="genderIcon" class="img-fluid">
+                        <label for="gender" class="form-label">Nem:</label>
+                    </div>
+                    <div class="col-12 col-md-10 text-center igazit">
+                        <img class="gender genderSelect img-fluid" id="male" src="images/maleIcon.png" alt="ferfi" onclick="NemKivalaszt('male')">
+                        <img class="gender img-fluid ms-3" id="female" src="images/femaileIcon.png" alt="no" onclick="NemKivalaszt('female')">
+                    </div>
+                </div>
+
+                <!-- Job Row -->
+                <div class="row mb-3">
+                    <div id="foglal-text" class="col-12 col-md-2 text-center">
+                        <img src="images/workIcon.png" alt="workIcon" class="img-fluid">
+                        <label for="job" class="form-label">Foglalkozás:</label>
+                    </div>
+                    <div class="col-12 col-md-10 igazit">
+                        <input type="text" id="job" name="job" class="form-control">
+                    </div>
+                </div>
+
+                <!-- Sector Row -->
+                <div class="row mb-3">
+                    <div class="col-12 col-md-2 text-center">
+                        <img src="images/workSectorIcon.png" alt="workSectorIcon" class="img-fluid">
+                        <label for="fields" class="form-label">Ágazat:</label>
+                    </div>
+                    <div class="col-12 col-md-10 igazit">
+                        <select name="fields" id="fields" class="form-select">
+                            <option value="Gépipar">Gépipar</option>
+                            <option value="Informatika">Informatika</option>
+                            <option value="Jogi">Jogi</option>
+                            <option value="Szépészet">Szépészet</option>
+                            <option value="Gazdasági">Gazdasági</option>
+                            <option value="Oktatási">Oktatási</option>
+                            <option value="Egeszseg">Egeszseg</option>
+                            <option value="Építészet">Építészet</option>
+                            <option value="Karbantartás és javítás">Karbantartás és javítás</option>
+                            <option value="Kommunikáció">Kommunikáció</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Email Row -->
+                <div class="row mb-3">
+                    <div class="col-12 col-md-2 text-center">
+                        <img src="images/mail_Icon.png" alt="emailIcon" class="img-fluid">
+                        <label for="email" class="form-label">Email:</label>
+                    </div>
+                    <div class="col-12 col-md-10 igazit">
+                        <input type="text" id="email" name="email" class="form-control">
+                    </div>
+                </div>
+
+                <!-- Password Row -->
+                <div class="row mb-3">
+                    <div class="col-12 col-md-2 text-center">
+                        <img src="images/password_Icon.png" alt="passwordIcon" class="img-fluid">
+                        <label for="password" class="form-label">Jelszó:</label>
+                    </div>
+                    <div class="col-12 col-md-10 igazit">
+                        <div class="input-group">
+                            <input type="password" id="password" name="password" class="form-control">
+                            <span class="input-group-text">
+                                <input type="checkbox" onclick="ShowPassword()">
+                                <img id="showPassword" src="images/eye.svg" alt="showPassword" class="img-fluid">
+                            </span>
+                            <button type="button" class="btn" onclick="AutoGenerate()">Generálás</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center">
+                    <input class="btn" type="submit"  value="Regisztrálás">
+                </div>
+
+            </form>
+        </div>
     </div>
 </body>
 </html>

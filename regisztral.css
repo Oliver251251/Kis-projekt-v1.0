@@ -4,10 +4,10 @@ html, body {
     padding: 0;
 }
 
-body {
-    background-image: url("images/bg.jpeg"); /* Path to your background image */
+body, #background {
+    background-image: url("images/bg.jpeg");
     background-repeat: no-repeat;
-    background-size: cover; /* Ensures the background covers the entire area */
+    background-size: cover;
     background-position: bottom right; /* Anchors the plant in the bottom-right corner */
     background-attachment: fixed; /* Optional: Keeps the background fixed while scrolling */
     min-height: 100vh; /* Ensures the body takes up the full viewport height, even when the content is small */
@@ -16,15 +16,14 @@ body {
 /* Optional media queries to ensure proper scaling on mobile devices */
 @media (max-width: 768px) {
     body {
-        background-size: cover; /* Ensures the image covers the screen on smaller devices */
+        background-size: cover;
         background-position: bottom right; /* Keep the plant visible in the bottom-right */
     }
-}
-
-@media (max-height: 600px) {
-    body {
-        background-size: contain; /* Ensures smaller screens still show the plant */
-        background-position: bottom right; /* Keep the plant visible in smaller heights */
+    #background{
+        transform: scaleX(-1);
+    }
+    .container, h1{
+        transform: scaleX(-1);
     }
 }
 
